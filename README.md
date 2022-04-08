@@ -1,2 +1,2 @@
-# kotlin-extensions
-Library of pure Kotlin extension functions to be used in multiplatform settings.
+# Kotlin Extensions
+Kotlin library containing utilities and extension functions.
