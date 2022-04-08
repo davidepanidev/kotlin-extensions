@@ -4,7 +4,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.util.*
 
-class DateExtensionsKtTest {
+class DateExtensionsTest {
 
     @Test
     fun `toFormattedString yyyy-MM-dd format`() {
