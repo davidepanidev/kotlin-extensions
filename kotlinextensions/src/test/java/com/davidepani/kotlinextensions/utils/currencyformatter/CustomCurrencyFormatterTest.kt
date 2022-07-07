@@ -90,4 +90,17 @@ class CustomCurrencyFormatterTest {
         expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
     }
 
+    @Test
+    fun `format with default values and customCurrencySymbol returns formatted currency`() {
+        val customCurrencySymbol = "ETH"
+        val expectedFormattedCurrency = "1,200.00${cut.spacingCharacter}$customCurrencySymbol"
+
+        val actualFormattedCurrency = cut.format(
+            amount = amount,
+            customCurrencySymbol = customCurrencySymbol
+        )
+
+        expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
+    }
+
 }

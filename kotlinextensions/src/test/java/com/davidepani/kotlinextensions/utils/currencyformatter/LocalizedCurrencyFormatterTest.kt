@@ -63,4 +63,18 @@ class LocalizedCurrencyFormatterTest {
         expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
     }
 
+    @Test
+    fun `format with default Locale and customCurrencySymbol returns formatted currency`() {
+        val amount = 1200
+        val customCurrencySymbol = "ETH"
+        val expectedFormattedCurrency = "1.200,00${nbsp}$customCurrencySymbol"
+
+        val actualFormattedCurrency = cut.format(
+            amount = amount,
+            customCurrencySymbol = customCurrencySymbol
+        )
+
+        expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
+    }
+
 }
