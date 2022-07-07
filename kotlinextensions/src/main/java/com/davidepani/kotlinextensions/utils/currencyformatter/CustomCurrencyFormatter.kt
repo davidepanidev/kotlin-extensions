@@ -47,4 +47,13 @@ class CustomCurrencyFormatter(
         )
     }
 
+    override fun format(amount: Number, customCurrencySymbol: String): String {
+        return this.format(
+            amount = amount,
+            currencySymbol = customCurrencySymbol,
+            currencySymbolPosition = this.currencySymbolPosition,
+            currencySymbolSpacing = this.currencySymbolSpacing
+        )
+    }
+
 }

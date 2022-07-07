@@ -8,3 +8,10 @@ fun Number.formatToCurrency(currencyFormatter: CurrencyFormatter): String {
         amount = this
     )
 }
+
+fun Number.formatToCurrency(currencyFormatter: CurrencyFormatter, customCurrencySymbol: String): String {
+    return currencyFormatter.format(
+        amount = this,
+        customCurrencySymbol = customCurrencySymbol
+    )
+}

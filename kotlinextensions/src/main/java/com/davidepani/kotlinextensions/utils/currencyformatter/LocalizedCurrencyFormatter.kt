@@ -29,4 +29,15 @@ class LocalizedCurrencyFormatter(
         )
     }
 
+    override fun format(amount: Number, customCurrencySymbol: String): String {
+        val trimmedSymbol = customCurrencySymbol.trim()
+        val localizedFormat = this.format(
+            amount = amount,
+            locale = this.locale,
+            currencyLocale = this.currencyLocale
+        )
+
+        return localizedFormat.replace(Currency.getInstance(this.currencyLocale).symbol, trimmedSymbol)
+    }
+
 }
