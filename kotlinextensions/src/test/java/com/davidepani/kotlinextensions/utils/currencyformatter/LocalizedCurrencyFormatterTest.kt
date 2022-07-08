@@ -11,7 +11,9 @@ class LocalizedCurrencyFormatterTest {
 
     private val cut = LocalizedCurrencyFormatter(
         locale = Locale.ITALY,
-        currencyLocale = Locale.ITALY
+        currencyLocale = Locale.ITALY,
+        minimumFractionDigits = 2,
+        maximumFractionDigits = 6
     )
 
 
@@ -54,9 +56,19 @@ class LocalizedCurrencyFormatterTest {
     }
 
     @Test
-    fun `format with Double amount with more than two decimal digits Locale returns formatted currency with two decimal digits`() {
+    fun `format with Double amount with more than two decimal digits returns formatted currency`() {
         val amount = 2.96424
-        val expectedFormattedCurrency = "2,96${nbsp}€"
+        val expectedFormattedCurrency = "2,96424${nbsp}€"
+
+        val actualFormattedCurrency = cut.format(amount = amount)
+
+        expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
+    }
+
+    @Test
+    fun `format with Double amount with more than six decimal digits returns formatted currency with six decimals`() {
+        val amount = 2.9642463843756
+        val expectedFormattedCurrency = "2,964246${nbsp}€"
 
         val actualFormattedCurrency = cut.format(amount = amount)
 

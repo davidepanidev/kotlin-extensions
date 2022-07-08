@@ -5,7 +5,9 @@ import java.util.*
 
 class LocalizedCurrencyFormatter(
     val locale: Locale = Locale.getDefault(),
-    val currencyLocale: Locale = Locale.getDefault()
+    val currencyLocale: Locale = Locale.getDefault(),
+    val maximumFractionDigits: Int = 2,
+    val minimumFractionDigits: Int = 2
 ) : CurrencyFormatter {
 
     fun format(
@@ -14,7 +16,8 @@ class LocalizedCurrencyFormatter(
         currencyLocale: Locale
     ): String {
         val numberFormat = NumberFormat.getCurrencyInstance(locale).apply {
-            maximumFractionDigits = 2
+            minimumFractionDigits = this@LocalizedCurrencyFormatter.minimumFractionDigits
+            maximumFractionDigits = this@LocalizedCurrencyFormatter.maximumFractionDigits
             currency = Currency.getInstance(currencyLocale)
         }
 
