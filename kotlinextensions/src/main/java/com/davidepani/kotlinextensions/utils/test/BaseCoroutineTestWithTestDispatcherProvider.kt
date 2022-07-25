@@ -18,7 +18,7 @@ abstract class BaseCoroutineTestWithTestDispatcherProvider(
      * Sets the Main dispatcher to the test dispatcher provided as input.
      */
     @get:Rule
-    protected val mainDispatcherRule = MainDispatcherRule(dispatcher = dispatcher)
+    val mainDispatcherRule = MainDispatcherRule(dispatcher = dispatcher)
 
     /**
      * DispatcherProvider to be provided as dependency to mocked classes.
