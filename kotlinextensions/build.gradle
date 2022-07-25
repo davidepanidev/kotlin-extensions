@@ -16,9 +16,11 @@ compileKotlin {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    implementation 'junit:junit:4.13.2'
+
     implementation "com.google.code.gson:gson:2.8.9"
 
-    testImplementation "junit:junit:4.13.2"
     testImplementation "io.strikt:strikt-core:0.34.1"
     testImplementation "io.mockk:mockk:1.12.3"
 }
@@ -31,7 +33,7 @@ afterEvaluate {
 
                 groupId = 'com.github.davide-pani'
                 artifactId = 'kotlin-extensions'
-                version = '1.4.0'
+                version = '1.5.0'
             }
         }
     }
