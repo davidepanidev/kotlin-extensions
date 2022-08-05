@@ -31,9 +31,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.java
 
-                groupId = 'com.github.davide-pani'
+                groupId = 'com.github.davidepanidev'
                 artifactId = 'kotlin-extensions'
-                version = '1.5.1'
+                version = '0.1'
             }
         }
     }
