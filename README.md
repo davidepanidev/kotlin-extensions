@@ -1,9 +1,10 @@
 # Kotlin Extensions
 
 [![Kotlin](https://img.shields.io/badge/kotlin-1.7.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
-[![License](https://img.shields.io/github/license/davidepanidev/kotlin-extensions?color=orange)]()
+[![License](https://img.shields.io/github/license/davidepanidev/kotlin-extensions?color=orange)](./LICENSE)
 [![Version](https://img.shields.io/jitpack/version/com.github.davidepanidev/kotlin-extensions?color=red&label=JitPack)](https://jitpack.io/#davidepanidev/kotlin-extensions)
 [![Snyk Security Scan](https://img.shields.io/snyk/vulnerabilities/github/davidepanidev/kotlin-extensions)](https://snyk.io/test/github/davidepanidev/kotlin-extensions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4b5f9a7ea5799f4daa74/maintainability)](https://codeclimate.com/github/davidepanidev/kotlin-extensions/maintainability)
 
 Kotlin helper functions to be used in JVM environments, built following SOLID principles.
 
