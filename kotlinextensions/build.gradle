@@ -33,7 +33,7 @@ afterEvaluate {
 
                 groupId = 'com.github.davidepanidev'
                 artifactId = 'kotlin-extensions'
-                version = '2.0.1'
+                version = '2.0.2'
             }
         }
     }
