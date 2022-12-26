@@ -11,7 +11,7 @@ class LocalizedCurrencyFormatterTest {
 
     private val cut = LocalizedCurrencyFormatter(
         locale = Locale.ITALY,
-        currencyLocale = Locale.ITALY,
+        currency = Currency.getInstance(Locale.ITALY),
         minimumFractionDigits = 2,
         maximumFractionDigits = 6
     )
@@ -35,7 +35,7 @@ class LocalizedCurrencyFormatterTest {
         val actualFormattedCurrency = cut.format(
             amount = amount,
             locale = Locale.US,
-            currencyLocale = Locale.ITALY
+            currency = Currency.getInstance(Locale.ITALY)
         )
 
         expectThat(actualFormattedCurrency).isEqualTo(expectedFormattedCurrency)
@@ -49,7 +49,7 @@ class LocalizedCurrencyFormatterTest {
         val actualFormattedCurrency = cut.format(
             amount = amount,
             locale = Locale.ITALY,
-            currencyLocale = Locale.US
+            currency = Currency.getInstance(Locale.US)
         )
 
         assertEquals(actualFormattedCurrency, expectedFormattedCurrency)

@@ -5,7 +5,11 @@ import java.util.*
 
 class LocalizedCurrencyFormatter(
     val locale: Locale = Locale.getDefault(),
-    val currencyLocale: Locale = Locale.getDefault(),
+    val currency: Currency = try {
+        Currency.getInstance(Locale.getDefault())
+    } catch (e: Exception) {
+        Currency.getInstance(Locale.US)
+    },
     val maximumFractionDigits: Int = 2,
     val minimumFractionDigits: Int = 2
 ) : CurrencyFormatter {
@@ -13,12 +17,12 @@ class LocalizedCurrencyFormatter(
     fun format(
         amount: Number,
         locale: Locale,
-        currencyLocale: Locale
+        currency: Currency
     ): String {
         val numberFormat = NumberFormat.getCurrencyInstance(locale).apply {
             minimumFractionDigits = this@LocalizedCurrencyFormatter.minimumFractionDigits
             maximumFractionDigits = this@LocalizedCurrencyFormatter.maximumFractionDigits
-            currency = Currency.getInstance(currencyLocale)
+            this.currency = currency
         }
 
         return numberFormat.format(amount)
@@ -28,7 +32,7 @@ class LocalizedCurrencyFormatter(
         return this.format(
             amount = amount,
             locale = this.locale,
-            currencyLocale = this.currencyLocale
+            currency = this.currency
         )
     }
 
@@ -37,10 +41,10 @@ class LocalizedCurrencyFormatter(
         val localizedFormat = this.format(
             amount = amount,
             locale = this.locale,
-            currencyLocale = this.currencyLocale
+            currency = this.currency
         )
 
-        return localizedFormat.replace(Currency.getInstance(this.currencyLocale).symbol, trimmedSymbol)
+        return localizedFormat.replace(this.currency.symbol, trimmedSymbol)
     }
 
 }
