@@ -51,3 +51,9 @@ fun LocalDateTime.toFormattedDateString(
     val formatter = DateTimeFormatter.ofLocalizedDate(formatStyle).withLocale(locale)
     return this.toLocalDate().toFormattedString(formatter = formatter)
 }
+
+fun LocalDateTime.isToday(): Boolean {
+    val now = LocalDateTime.now()
+
+    return this.year == now.year && this.dayOfYear == now.dayOfYear
+}
